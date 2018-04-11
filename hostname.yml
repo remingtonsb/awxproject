@@ -1,4 +1,11 @@
 ---
 - name: Get hostname
-  shell: echo $HOSTNAME
-  register: result
+  hosts: all
+  tasks:
+  - name: chamando shell
+    shell: echo $HOSTNAME
+    register: result
+
+  - name: ler register
+    debug:
+      var: result
